@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.newsreader-italic {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+}
+
+.bg-hero {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.glass-effect {
+  backdrop-filter: blur(12px);
+  background-color: rgba(254, 247, 255, 0.9);
+}
+
+.ambient-shadow {
+  box-shadow: 0 12px 40px rgba(119, 88, 57, 0.08);
+}
+
+.cta-gradient {
+  background: linear-gradient(to right, #775839, #b99470);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease-out forwards;
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
