@@ -2,6 +2,12 @@ import coverCouple from '../assets/stitch/cover-couple.png'
 import heroBg from '../assets/stitch/hero.webp'
 
 const CoverSection = () => {
+  const guestName = (() => {
+    if (typeof window === 'undefined') return 'Nama Tamu'
+    const to = new URLSearchParams(window.location.search).get('to')?.trim()
+    return to || 'Nama Tamu'
+  })()
+
   const handleOpenInvitation = (event) => {
     event.preventDefault()
     const target = document.getElementById('quote')
@@ -46,7 +52,7 @@ const CoverSection = () => {
         <h1 className="mb-12 font-headline text-5xl italic tracking-tight text-white drop-shadow-lg md:text-8xl">Faris & Ari</h1>
         <div className="mb-8 text-white drop-shadow-md">
           <p className="mb-2 font-label text-xs uppercase tracking-widest opacity-80">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-          <p className="font-headline text-2xl italic md:text-3xl">Nama Tamu</p>
+          <p className="font-headline text-2xl italic md:text-3xl">{guestName}</p>
         </div>
         <a
           className="cta-gradient inline-flex items-center gap-2 rounded-full px-8 py-3 font-label text-sm uppercase tracking-widest text-white shadow-xl transition-transform duration-200 hover:scale-95"

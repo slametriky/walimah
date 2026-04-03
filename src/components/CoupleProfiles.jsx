@@ -28,7 +28,7 @@ const CoupleProfiles = () => {
             <p className="mx-auto max-w-xs font-body text-sm text-on-surface-variant">
               Putra dari
               <br />
-              Bapak Imam Suyono (rahimahullah)
+              Bapak Imam Suyono (Rahimahullah)
               <br /> &
               Ibu Hj. Sudarmi, S.Pd
             </p>
