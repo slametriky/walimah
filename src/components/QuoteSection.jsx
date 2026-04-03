@@ -3,7 +3,7 @@ const QuoteSection = () => {
     <section className="relative overflow-hidden bg-surface px-6 py-24 text-center md:px-12" id="quote">
       <div className="mx-auto max-w-4xl">
         <h2 className="mb-4 font-headline text-4xl italic text-primary">Ngunduh Mantu</h2>
-        <h3 className="mb-4 font-headline text-2xl italic text-primary">Faris & Ari</h3>
+        <h3 className="mb-4 font-headline text-2xl italic text-primary">Salman & Tia</h3>
         <p className="mb-12 font-label text-sm tracking-[0.2em] text-secondary">SABTU, 18 APRIL 2026</p>
 
         <div className="relative py-12">

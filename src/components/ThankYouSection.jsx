@@ -8,7 +8,7 @@ const ThankYouSection = () => {
           <br />
           kami ucapkan terima kasih.
         </p>
-        <p className="font-headline text-3xl italic text-on-surface">Faris & Ari</p>
+        <p className="font-headline text-3xl italic text-on-surface">Salman & Tia</p>
       </div>
     </section>
   )

@@ -49,7 +49,7 @@ const CoverSection = () => {
           </div>
         </div>
 
-        <h1 className="mb-12 font-headline text-5xl italic tracking-tight text-white drop-shadow-lg md:text-8xl">Faris & Ari</h1>
+        <h1 className="mb-12 font-headline text-5xl italic tracking-tight text-white drop-shadow-lg md:text-8xl">Salman & Tia</h1>
         <div className="mb-8 text-white drop-shadow-md">
           <p className="mb-2 font-label text-xs uppercase tracking-widest opacity-80">Kepada Yth. Bapak/Ibu/Saudara/i</p>
           <p className="font-headline text-2xl italic md:text-3xl">{guestName}</p>

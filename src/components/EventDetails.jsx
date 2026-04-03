@@ -34,7 +34,9 @@ const EventDetails = () => {
           </div>
           <a
             className="mt-12 inline-block border-b-2 border-primary pb-1 font-label text-sm uppercase tracking-widest text-primary transition-opacity hover:opacity-60"
-            href="#"
+            href="https://maps.app.goo.gl/vBwxUrddJrG5pKfD8?g_st=aw"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Lihat Lokasi Acara
           </a>
