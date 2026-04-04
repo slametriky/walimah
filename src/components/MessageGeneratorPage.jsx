@@ -22,6 +22,14 @@ Salman dan Tia`
 }
 
 const onlyDigits = (value) => value.replace(/\D/g, '')
+const normalizeWaNumber = (value) => {
+  const digits = onlyDigits(value)
+  if (!digits) return ''
+  if (digits.startsWith('62')) return digits
+  if (digits.startsWith('0')) return `62${digits.slice(1)}`
+  if (digits.startsWith('8')) return `62${digits}`
+  return digits
+}
 
 const MessageGeneratorPage = () => {
   const [recipientName, setRecipientName] = useState('')
@@ -38,7 +46,9 @@ const MessageGeneratorPage = () => {
 
   useEffect(() => {
     if (!isEdited) {
-      setMessage(buildTemplate(recipientName.trim(), inviteUrl))
+      if (recipientName.trim()) {
+        setMessage(buildTemplate(recipientName.trim(), inviteUrl))
+      }
     }
   }, [inviteUrl, isEdited, recipientName])
 
@@ -55,8 +65,14 @@ const MessageGeneratorPage = () => {
     }
   }
 
+  const handleResetTemplate = () => {
+    setRecipientName('')
+    setPhoneNumber('')
+    setCopyStatus('Nama penerima dan nomor WhatsApp berhasil dikosongkan.')
+  }
+
   const waUrl = useMemo(() => {
-    const cleanPhone = onlyDigits(phoneNumber)
+    const cleanPhone = normalizeWaNumber(phoneNumber)
     if (!cleanPhone || !message.trim()) return '#'
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`
   }, [message, phoneNumber])
@@ -86,7 +102,7 @@ const MessageGeneratorPage = () => {
             <input
               className="w-full rounded-xl border border-outline-variant/40 bg-transparent px-4 py-3 font-body text-on-surface outline-none transition-colors focus:border-primary"
               onChange={(event) => setPhoneNumber(onlyDigits(event.target.value))}
-              placeholder="Contoh: 62812xxxx"
+              placeholder="Contoh: 0812xxxx atau 62812xxxx"
               type="text"
               value={phoneNumber}
             />
@@ -113,10 +129,7 @@ const MessageGeneratorPage = () => {
         <div className="mt-6 flex flex-wrap gap-3">
           <button
             className="rounded-full border border-primary/30 px-5 py-2.5 font-label text-xs uppercase tracking-widest text-primary transition-opacity hover:opacity-70"
-            onClick={() => {
-              setIsEdited(false)
-              setMessage(buildTemplate(recipientName.trim(), inviteUrl))
-            }}
+            onClick={handleResetTemplate}
             type="button"
           >
             Reset Template
